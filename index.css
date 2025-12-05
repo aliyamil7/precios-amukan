@@ -8,8 +8,7 @@
 }
 
 body {
-  background: url("https://i.imgur.com/qPnq2K7.jpg");
-  background-size: cover;
+  background-color: antiquewhite;
   font-family: "Poppins", sans-serif;
   padding: 20px;
 }
