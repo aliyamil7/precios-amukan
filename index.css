@@ -1,0 +1,115 @@
+/* Tipografías artesanales */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("https://i.imgur.com/qPnq2K7.jpg");
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  padding: 25px 0;
+  background-color: rgba(255, 243, 225, 0.8);
+  backdrop-filter: blur(3px);
+  border-bottom: 4px solid #a66a37;
+  border-radius: 0 0 20px 20px;
+}
+
+.header_title {
+  font-family: "Caveat", cursive;
+  font-size: 3rem;
+  color: #6b3e1d;
+}
+
+.price {
+  max-width: 700px;
+  margin: 30px auto;
+  background: #fff7e6;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
+  border: 2px solid #a65b27;
+}
+
+.price_title {
+  font-size: 2rem;
+  color: #6b3e1d;
+  text-align: center;
+  font-family: "Caveat", cursive;
+  margin-bottom: 20px;
+}
+
+/* TITULOS DE CATEGORÍA CON ICONOS */
+.price-item-title {
+  font-size: 1.6rem;
+  color: #7a451f;
+  margin-bottom: 12px;
+  border-left: 6px solid #d4a06a;
+  padding-left: 10px;
+  font-weight: 600;
+  font-family: "Caveat", cursive;
+}
+
+/* Íconos por categoría */
+.price_list_item:nth-child(1) .price-item-title::before {
+  content: "🍔 ";
+}
+.price_list_item:nth-child(2) .price-item-title::before {
+  content: "🍝 ";
+}
+.price_list_item:nth-child(3) .price-item-title::before {
+  content: "🥖 ";
+}
+.price_list_item:nth-child(4) .price-item-title::before {
+  content: "🍕 ";
+}
+
+.price-item-sublist {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.price-item-text {
+  font-size: 1rem;
+  color: #3a2b23;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #c4a484;
+}
+
+.price-item-text:last-child {
+  border-bottom: none;
+}
+
+.price-value {
+  font-weight: 700;
+  color: #a65b27;
+  background: #f3e0c7;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* RESPONSIVE para celular */
+@media (max-width: 480px) {
+  .price {
+    padding: 18px;
+  }
+
+  .price-item-text {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .price-value {
+    align-self: flex-end;
+  }
+}
