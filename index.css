@@ -1,5 +1,5 @@
-/* Tipografías artesanales */
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500;700&display=swap");
+/* Tipografías cálidas */
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Inter:wght@300;500;600&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,133 +8,102 @@
 }
 
 body {
-  background: linear-gradient(180deg, #ffefd5, #ffe8d0);
-  font-family: "Poppins", sans-serif;
-  padding: 20px;
+  background-color: #f3e9db; /* Fondo cálido */
+  font-family: "Inter", sans-serif;
+  color: #4b3a2b;
+  padding: 40px 20px;
 }
 
+/* HEADER */
 .header {
   text-align: center;
   padding: 25px 0;
-  background-color: rgba(255, 243, 225, 0.8);
-  backdrop-filter: blur(3px);
-  border-bottom: 4px solid #a66a37;
-  border-radius: 0 0 20px 20px;
+  background: #d8b892;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .header_title {
-  font-family: "Caveat", cursive;
-  font-size: 3rem;
-  color: #6b3e1d;
+  font-family: "Lora", serif;
+  font-size: 2.7rem;
+  color: #3a2d23;
+  letter-spacing: 1px;
 }
 
+/* CONTENEDOR PRINCIPAL */
 .price {
-  max-width: 700px;
-  margin: 30px auto;
-  background: #fff7e6;
-  padding: 25px;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.12);
-  border: 2px solid #a65b27;
+  max-width: 780px;
+  margin: 40px auto;
+  background: #fff8ef;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid #dfc9b3;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
 .price_title {
-  font-size: 2rem;
-  color: #6b3e1d;
   text-align: center;
-  font-family: "Caveat", cursive;
-  margin-bottom: 20px;
+  font-family: "Lora", serif;
+  font-size: 2.3rem;
+  color: #7a5633;
+  margin-bottom: 25px;
 }
 
-/* TITULOS DE CATEGORÍA CON ICONOS */
+/* CATEGORÍAS */
+.price_list_item {
+  margin-bottom: 25px;
+}
+
 .price-item-title {
+  font-family: "Lora", serif;
   font-size: 1.6rem;
-  color: #7a451f;
-  margin-bottom: 12px;
-  border-left: 6px solid #d4a06a;
-  padding-left: 10px;
   font-weight: 600;
-  font-family: "Caveat", cursive;
+  color: #4b3a2b;
   cursor: pointer;
-  position: relative;
-  transition: color 0.2s ease;
+  background: #e0ceba;
+  padding: 12px 15px;
+  border-radius: 10px;
+  transition: 0.3s ease;
 }
 
-.price_list_item:nth-child(1) .price-item-title::before {
-  content: "🍔 ";
-}
-.price_list_item:nth-child(2) .price-item-title::before {
-  content: "🍝 ";
-}
-.price_list_item:nth-child(3) .price-item-title::before {
-  content: "🥖 ";
-}
-.price_list_item:nth-child(4) .price-item-title::before {
-  content: "🍕 ";
+.price-item-title:hover {
+  background: #d1b89a;
 }
 
-/* Flecha animada */
-.price-item-title::after {
-  content: "▼";
-  position: absolute;
-  right: 10px;
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.price-item-title.open::after {
-  transform: rotate(-180deg);
-}
-
-/* Listas plegables animadas */
+/* SUBLISTA DE PRODUCTOS */
 .price-item-sublist {
+  display: none;
   list-style: none;
-  margin-bottom: 15px;
-  margin-left: 20px;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.35s ease, opacity 0.35s ease;
+  margin-left: 10px;
+  padding-top: 10px;
 }
 
-.price-item-sublist.active {
-  max-height: 800px;
-  opacity: 1;
-}
-
-/* Items */
 .price-item-text {
-  font-size: 1rem;
-  color: #3a2b23;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
   display: flex;
   justify-content: space-between;
-  padding: 10px 5px;
-  border-bottom: 1px dashed #d8b894;
-  transition: background 0.25s ease;
-}
-
-.price-item-text:hover {
-  background-color: rgba(255, 237, 211, 0.7);
-  border-radius: 6px;
+  font-size: 1rem;
 }
 
 .price-item-text:last-child {
   border-bottom: none;
 }
 
+/* PRECIO */
 .price-value {
   font-weight: 700;
-  color: #a65b27;
-  background: #f3e0c7;
-  padding: 3px 8px;
-  border-radius: 6px;
+  background: #c79b63;
+  color: #fffdf8;
+  padding: 6px 12px;
+  border-radius: 8px;
 }
 
 /* RESPONSIVE */
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .price-item-text {
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
   }
   .price-value {
     align-self: flex-end;

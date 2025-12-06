@@ -1,7 +1,9 @@
-document.querySelectorAll(".price-item-title").forEach((title) => {
+const titles = document.querySelectorAll(".price-item-title");
+
+titles.forEach((title) => {
   title.addEventListener("click", () => {
     const sublist = title.nextElementSibling;
-    sublist?.classList.toggle("active");
-    title.classList.toggle("open");
+    sublist.style.display =
+      sublist.style.display === "block" ? "none" : "block";
   });
 });
