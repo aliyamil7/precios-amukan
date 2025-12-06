@@ -1,29 +1,63 @@
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function formatPrice(num) {
   return `$${num.toLocaleString("es-AR")}`;
+}
+
+function saveCart() {
+  localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function renderCart() {
   const itemsContainer = document.querySelector(".cart-items");
   itemsContainer.innerHTML = "";
 
-  cart.forEach((item) => {
-    const li = document.createElement("li");
-    li.classList.add("cart-item");
-    li.textContent = `${item.name} - ${formatPrice(item.price)}`;
+  const counter = document.querySelector(".cart-counter");
+  counter.textContent = cart.length;
 
-    itemsContainer.appendChild(li);
+  counter.classList.add("bump");
+  setTimeout(() => counter.classList.remove("bump"), 200);
 
-    setTimeout(() => li.classList.add("show"), 10);
-  });
+  if (cart.length === 0) {
+    itemsContainer.innerHTML = `<li class="empty-msg">Tu carrito está vacío</li>`;
+  } else {
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.classList.add("cart-item");
+
+      li.innerHTML = `
+        ${item.name} - ${formatPrice(item.price)}
+        <span class="delete">&times;</span>
+      `;
+
+      li.querySelector(".delete").addEventListener("click", (e) => {
+        e.stopPropagation();
+        removeItem(index);
+      });
+
+      itemsContainer.appendChild(li);
+
+      setTimeout(() => li.classList.add("show"), 10);
+    });
+  }
 
   updateTotal();
+  saveCart();
 }
 
 function addToCart(name, price) {
   cart.push({ name, price });
   renderCart();
+}
+
+function removeItem(index) {
+  const removedItem = document.querySelectorAll(".cart-item")[index];
+  removedItem.classList.add("hide");
+
+  setTimeout(() => {
+    cart.splice(index, 1);
+    renderCart();
+  }, 300);
 }
 
 function clearCart() {
@@ -68,6 +102,8 @@ function main() {
   });
 
   clearButton.addEventListener("click", clearCart);
+
+  renderCart();
 }
 
 main();

@@ -118,3 +118,68 @@ body {
   cursor: pointer;
   margin-left: 10px;
 }
+
+.cart-item {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: 0.3s ease;
+}
+
+.cart-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cart-item .delete {
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.cart-item.hide {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.empty-msg {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.cart-counter {
+  background: #d35400;
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  margin-left: 6px;
+}
+
+.cart-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Burbujita del contador */
+.cart-counter {
+  background-color: #c0392b; /* rojo cálido */
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  min-height: 22px;
+  transition: transform 0.2s ease;
+}
+
+/* Mini animación cada vez que cambia */
+.cart-counter.bump {
+  transform: scale(1.25);
+}
