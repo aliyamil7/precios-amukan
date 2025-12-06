@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: antiquewhite;
+  background: linear-gradient(180deg, #ffefd5, #ffe8d0);
   font-family: "Poppins", sans-serif;
   padding: 20px;
 }
@@ -55,9 +55,11 @@ body {
   padding-left: 10px;
   font-weight: 600;
   font-family: "Caveat", cursive;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
 }
 
-/* Íconos por categoría */
 .price_list_item:nth-child(1) .price-item-title::before {
   content: "🍔 ";
 }
@@ -71,18 +73,49 @@ body {
   content: "🍕 ";
 }
 
-.price-item-sublist {
-  list-style: none;
-  margin-bottom: 20px;
+/* Flecha animada */
+.price-item-title::after {
+  content: "▼";
+  position: absolute;
+  right: 10px;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
 }
 
+.price-item-title.open::after {
+  transform: rotate(-180deg);
+}
+
+/* Listas plegables animadas */
+.price-item-sublist {
+  list-style: none;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+.price-item-sublist.active {
+  max-height: 800px;
+  opacity: 1;
+}
+
+/* Items */
 .price-item-text {
   font-size: 1rem;
   color: #3a2b23;
   display: flex;
   justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px dashed #c4a484;
+  padding: 10px 5px;
+  border-bottom: 1px dashed #d8b894;
+  transition: background 0.25s ease;
+}
+
+.price-item-text:hover {
+  background-color: rgba(255, 237, 211, 0.7);
+  border-radius: 6px;
 }
 
 .price-item-text:last-child {
@@ -97,17 +130,12 @@ body {
   border-radius: 6px;
 }
 
-/* RESPONSIVE para celular */
+/* RESPONSIVE */
 @media (max-width: 480px) {
-  .price {
-    padding: 18px;
-  }
-
   .price-item-text {
     flex-direction: column;
     gap: 4px;
   }
-
   .price-value {
     align-self: flex-end;
   }
